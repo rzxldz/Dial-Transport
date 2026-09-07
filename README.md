@@ -1,50 +1,33 @@
 Dial Transport
 
-Sitio web desarrollado para una empresa dedicada a servicios de transporte empresarial, turístico, escolar y para eventos.
+Sitio web desarrollado para una empresa de renta y transporte de vehículos.
 
 Descripción
 
-El proyecto consiste en un sitio web informativo y de contacto para presentar los servicios y la flotilla de vehículos de Dial Transport.
+Proyecto web creado para presentar los servicios de Dial Transport, mostrar su flotilla de vehículos y facilitar el contacto con clientes interesados en solicitar una cotización.
 
-El sitio permite a los usuarios consultar información de los vehículos disponibles, conocer sus características y precios, y solicitar una cotización mediante diferentes medios de contacto.
+El sitio fue desarrollado como un proyecto práctico y publicado en Netlify.
 
-Funcionalidades
-
-* Visualización de la flotilla de vehículos.
-* Información sobre características y precios.
-* Información de los servicios ofrecidos.
-* Contacto mediante WhatsApp y teléfono.
-* Contacto mediante correo electrónico.
-* Formulario y flujo de cotización.
-* Generación de una solicitud de cotización según el vehículo seleccionado.
-* Diseño adaptable a diferentes dispositivos.
-
-Tecnologías
+Tecnologías utilizadas
 
 * HTML
 * CSS
 * JavaScript
 * Netlify
 
-Estructura
+Funcionalidades
 
-dial-transport/
-├── index.html
-└── assets/
-    ├── logo-dial-transport.png
-    └── fleet/
-        ├── hiace-2017.png
-        ├── hiace-2019.png
-        ├── jetta.png
-        ├── aveo.png
-        ├── suburban.png
-        ├── tiguan.png
-        ├── hilux-2024.png
-        └── virtus.jpeg
+* Diseño responsive para diferentes dispositivos.
+* Presentación de servicios y cobertura.
+* Galería de vehículos disponibles.
+* Formularios para solicitar cotizaciones.
+* Ventanas modales para solicitudes específicas por vehículo.
+* Integración de contacto mediante WhatsApp, teléfono y correo electrónico.
+* Enlaces directos para realizar solicitudes de cotización.
 
-Publicación
+Proyecto
 
-El sitio fue publicado originalmente mediante Netlify.
+Este proyecto forma parte de mi portafolio como estudiante de Ingeniería en Tecnologías de Cómputo y Telecomunicaciones y representa uno de mis primeros proyectos web desarrollados para un caso de uso real.
 
 Autor
 
