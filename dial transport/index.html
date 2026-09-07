@@ -1,0 +1,1125 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dial Transport | Transporte empresarial, turístico, escolar y eventos</title>
+  <meta name="description" content="Dial Transport: transporte confiable con atención personalizada. Cobertura nacional en México. Flotilla en excelente estado, sanitizada y con excelente presentación." />
+  <link rel="icon" href="assets/logo-dial-transport.png" type="image/png">
+
+  <style>
+    :root{
+      --bg0: #060913;
+      --bg1: #0a1022;
+      --text: #eef2fb;
+      --muted: rgba(238,242,251,.72);
+      --muted2: rgba(238,242,251,.56);
+      --card: rgba(255,255,255,.06);
+      --border: 1px solid rgba(255,255,255,.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.40);
+      --radius: 18px;
+
+      --gold: #f2b400;
+      --blue: #1f6ea9;
+      --blue2: #2d8ad1;
+      --ok: #35d07f;
+
+      --max: 1120px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(900px 600px at 14% 12%, rgba(31,110,169,.18), transparent 55%),
+        radial-gradient(900px 600px at 84% 18%, rgba(242,180,0,.14), transparent 55%),
+        radial-gradient(900px 700px at 55% 92%, rgba(45,138,209,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      line-height: 1.5;
+    }
+    a{ color: inherit; text-decoration: none; }
+    img{ max-width: 100%; display: block; }
+
+    .container{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Topbar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(6,9,19,.62);
+      border-bottom: var(--border);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 240px;
+    }
+    .logo-img{
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+    .brandText{
+      display:flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .brandText b{
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+    .brandText span{
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .menu{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .menu a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      font-size: 13px;
+      transition: background .12s ease, border-color .12s ease, transform .12s ease;
+    }
+    .menu a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.16);
+      transform: translateY(-1px);
+    }
+
+    .cta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content: flex-end;
+      min-width: 230px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select: none;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.18);
+    }
+    .btn.primary{
+      border: 1px solid rgba(242,180,0,.30);
+      background: linear-gradient(135deg, rgba(242,180,0,.18), rgba(31,110,169,.16));
+    }
+    .btn.whatsapp{
+      border: 1px solid rgba(53,208,127,.30);
+      background: linear-gradient(135deg, rgba(53,208,127,.18), rgba(45,138,209,.10));
+    }
+    .btn.ghost{
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.04);
+    }
+    .btn.danger{
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Hero */
+    .hero{ padding: 46px 0 18px; }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .panel{
+      border: var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .heroMain{
+      padding: 26px;
+      position: relative;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: 13px;
+      width: fit-content;
+    }
+    .dot{
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--ok);
+      box-shadow: 0 0 0 6px rgba(53,208,127,.12);
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.6px;
+    }
+    .lead{
+      margin: 0 0 16px;
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 15.5px;
+    }
+
+    .heroActions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .pillRow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .pill{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    /* Right panel: quick quote */
+    .quoteBox{
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .quoteBox h3{
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+    .quoteBox p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    input, textarea, select{
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      padding: 12px 12px;
+      outline: none;
+      font-size: 14px;
+    }
+    textarea{ min-height: 98px; resize: vertical; }
+    .small{ color: var(--muted2); font-size: 12px; }
+
+    /* Sections */
+    section{ padding: 26px 0; }
+    .sectionHead{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+    }
+    .sectionHead p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 64ch;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card{
+      border: var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+    }
+    .card h3{ margin: 8px 0 8px; font-size: 16px; }
+    .card p{ margin: 0; color: var(--muted); font-size: 14px; }
+
+    .icon{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    /* Fleet gallery */
+    .fleetGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .vehicle{
+      border: var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+      display:flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .vehicle .imgWrap{
+      position: relative;
+      aspect-ratio: 16/10;
+      background: rgba(255,255,255,.05);
+    }
+    .vehicle img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.02) contrast(1.03);
+    }
+    .vehicle .meta{
+      padding: 14px;
+      display:flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+    .vehicle .meta b{
+      font-size: 15px;
+      letter-spacing: -0.1px;
+    }
+    .vehicle .meta span{
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .tagRow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .tag{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+    }
+    .vehicle .actions{
+      margin-top: 10px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .vehicle .actions .btn{
+      padding: 9px 12px;
+    }
+
+    /* Clients */
+    .clients{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .client{
+      border: var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      padding: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align:center;
+    }
+
+    /* Contact */
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .kv{
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap: 10px 12px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .kv b{ color: var(--text); font-weight: 650; }
+
+    footer{
+      padding: 22px 0 34px;
+      border-top: var(--border);
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .foot{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Floating WhatsApp */
+    .floatWA{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 60;
+      border-radius: 999px;
+      padding: 12px 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(53,208,127,.35);
+      background: linear-gradient(135deg, rgba(53,208,127,.20), rgba(45,138,209,.14));
+      font-size: 13px;
+    }
+    .floatWA:hover{ transform: translateY(-1px); }
+
+    /* Modal */
+    .modalOverlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 80;
+    }
+    .modalOverlay.open{ display: flex; }
+    .modal{
+      width: min(820px, 100%);
+      border: var(--border);
+      background: rgba(10,16,34,.88);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .modalHeader{
+      display:flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .modalHeader h3{
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+    .modalHeader p{
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .closeBtn{
+      border-radius: 12px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .modalBody{
+      padding: 16px;
+      display:grid;
+      gap: 10px;
+    }
+    .modalFooter{
+      padding: 14px 16px 16px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      display:flex;
+      gap: 10px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .cta{ min-width: auto; }
+      .menu{ display: none; }
+      .grid3{ grid-template-columns: 1fr; }
+      .fleetGrid{ grid-template-columns: 1fr; }
+      .clients{ grid-template-columns: repeat(2, 1fr); }
+      .contactGrid{ grid-template-columns: 1fr; }
+      .kv{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .modalFooter{ justify-content: stretch; }
+      .modalFooter .btn{ width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#inicio" aria-label="Dial Transport - inicio">
+          <img class="logo-img" src="assets/logo-dial-transport.png" alt="Dial Transport">
+          <div class="brandText">
+            <b>Dial Transport</b>
+            <span>Servicio de transporte con atención personalizada</span>
+          </div>
+        </a>
+
+        <nav class="menu" aria-label="Navegación principal">
+          <a href="#servicios">Servicios</a>
+          <a href="#cobertura">Cobertura</a>
+          <a href="#flotilla">Flotilla</a>
+          <a href="#clientes">Clientes</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn ghost" href="tel:+522223444506" title="Llamar Puebla">Llamar</a>
+          <a class="btn primary" href="#contacto" title="Cotizar">Cotizar</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio" class="hero">
+    <div class="container">
+      <div class="heroGrid">
+        <div class="panel heroMain">
+          <div class="badge">
+            <span class="dot"></span>
+            Flotilla en excelente estado, sanitizada y con excelente presentación
+          </div>
+
+          <h1>Transporte confiable para empresas, turismo, escuelas y eventos</h1>
+
+          <p class="lead">
+            En Dial Transport brindamos un servicio de transporte de calidad con atención personalizada, enfocado en cubrir tus
+            necesidades con seguridad y profesionalismo, cumpliendo lo establecido en la ley.
+          </p>
+
+          <div class="pillRow" aria-label="Servicios principales">
+            <span class="pill">Transporte empresarial</span>
+            <span class="pill">Transporte turístico</span>
+            <span class="pill">Transporte escolar</span>
+            <span class="pill">Eventos sociales</span>
+            <span class="pill">Cobertura nacional</span>
+          </div>
+
+          <div class="heroActions">
+            <a class="btn whatsapp"
+               href="https://wa.me/5215636305897?text=Hola%20Dial%20Transport%2C%20me%20gustar%C3%ADa%20cotizar%20un%20servicio.%20%C2%BFMe%20apoyan%20por%20favor%3F"
+               target="_blank" rel="noopener">
+              Cotizar por WhatsApp
+            </a>
+            <a class="btn primary" href="#flotilla">Ver flotilla</a>
+            <a class="btn ghost" href="#servicios">Ver servicios</a>
+          </div>
+
+          <div style="margin-top:16px; color: var(--muted2); font-size: 13px;">
+            Atención: Puebla (22 23 44 45 06 / 22 21 36 08 64) · CDMX (55 48 60 16 28 / 56 36 30 58 97)
+          </div>
+        </div>
+
+        <aside class="panel quoteBox" aria-label="Cotización rápida">
+          <h3>Cotización rápida (abre Gmail)</h3>
+          <p>Completa los datos y se abrirá Gmail Web con el mensaje listo para enviar.</p>
+
+          <form id="quoteForm">
+            <div class="grid2">
+              <input id="name" type="text" placeholder="Nombre" autocomplete="name" required />
+              <input id="phone" type="tel" placeholder="Teléfono" autocomplete="tel" required />
+            </div>
+            <input id="route" type="text" placeholder="Origen → Destino" required />
+            <div class="grid2">
+              <input id="date" type="text" placeholder="Fecha y hora (ej. 10/01/2026 08:30)" required />
+              <input id="people" type="text" placeholder="Número de personas" required />
+            </div>
+            <textarea id="details" placeholder="Detalles (tipo de servicio, paradas, equipaje, etc.)"></textarea>
+
+            <button class="btn primary" type="submit">Abrir Gmail con la cotización</button>
+            <div class="small">Si no tienes sesión iniciada, Gmail te pedirá entrar y luego verás el borrador.</div>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <section id="servicios">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Servicios</h2>
+        <p>Soluciones de transporte para distintas industrias y ocasiones.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M7 21h10M9 21V8a3 3 0 0 1 6 0v13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M4 11h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Transporte empresarial</h3>
+          <p>Traslados corporativos puntuales para personal, visitas, staff y operaciones.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M3 12s3-6 9-6 9 6 9 6-3 6-9 6-9-6-9-6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M12 9.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <h3>Transporte turístico</h3>
+          <p>Traslados cómodos para visitantes, tours y experiencias, con enfoque en seguridad.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M7 8h10M7 12h10M7 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <h3>Eventos sociales</h3>
+          <p>Logística de transporte para eventos: coordinación de tiempos, rutas y traslados.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M4 16V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M6 16h12l-1 4H7l-1-4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Transporte escolar</h3>
+          <p>Traslados responsables para instituciones educativas y rutas específicas.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 22s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <h3>Cobertura nacional</h3>
+          <p>Viajes desde cualquier punto de la República Mexicana, según programación y ruta.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Seguridad y cumplimiento</h3>
+          <p>Operación profesional orientada a una experiencia segura y eficiente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cobertura">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Cobertura</h2>
+        <p>Servicio para personas físicas y morales, con atención personalizada según necesidad.</p>
+      </div>
+
+      <div class="panel" style="padding:18px;">
+        <div class="pillRow">
+          <span class="pill">Traslados programados</span>
+          <span class="pill">Atención personalizada</span>
+          <span class="pill">Puebla</span>
+          <span class="pill">CDMX</span>
+          <span class="pill">República Mexicana</span>
+        </div>
+        <p style="margin:12px 0 0; color: var(--muted);">
+          Para cotizar: origen, destino, fecha/hora, número de pasajeros y tipo de servicio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="flotilla">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Flotilla</h2>
+        <p>Selecciona un vehículo y presiona “Solicitar” para cotizar sin salir de la página.</p>
+      </div>
+
+      <div class="fleetGrid">
+        <article class="vehicle">
+          <div class="imgWrap"><img src="assets/fleet/jetta.png" alt="VW Jetta 2014 Sport"></div>
+          <div class="meta">
+            <b>VW Jetta 2014 Sport</b>
+            <span>Sedán · Traslado ejecutivo</span>
+            <div class="tagRow"><span class="tag">Confort</span><span class="tag">Ciudad</span></div>
+            <div class="actions">
+              <button class="btn whatsapp" type="button" onclick="openRequestModal('VW Jetta 2014 Sport')">Solicitar</button>
+              <button class="btn ghost" type="button" onclick="openRequestModal('VW Jetta 2014 Sport', {channel:'email'})">Correo</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="vehicle">
+          <div class="imgWrap"><img src="assets/fleet/virtus.jpeg" alt="VW Virtus 2021 Comfortline"></div>
+          <div class="meta">
+            <b>VW Virtus 2021 Comfortline</b>
+            <span>Sedán · Servicio diario</span>
+            <div class="tagRow"><span class="tag">Eficiente</span><span class="tag">Corporativo</span></div>
+            <div class="actions">
+              <button class="btn whatsapp" type="button" onclick="openRequestModal('VW Virtus 2021 Comfortline')">Solicitar</button>
+              <button class="btn ghost" type="button" onclick="openRequestModal('VW Virtus 2021 Comfortline', {channel:'email'})">Correo</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="vehicle">
+          <div class="imgWrap"><img src="assets/fleet/tiguan.png" alt="VW Tiguan 2021 R Line"></div>
+          <div class="meta">
+            <b>VW Tiguan 2021 R Line</b>
+            <span>SUV · Traslado premium</span>
+            <div class="tagRow"><span class="tag">Premium</span><span class="tag">Equipaje</span></div>
+            <div class="actions">
+              <button class="btn whatsapp" type="button" onclick="openRequestModal('VW Tiguan 2021 R Line')">Solicitar</button>
+              <button class="btn ghost" type="button" onclick="openRequestModal('VW Tiguan 2021 R Line', {channel:'email'})">Correo</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="vehicle">
+          <div class="imgWrap"><img src="assets/fleet/suburban.png" alt="Chevrolet Suburban 2025"></div>
+          <div class="meta">
+            <b>Chevrolet Suburban 2025</b>
+            <span>Sedán · Traslados prácticos</span>
+            <div class="tagRow"><span class="tag">Ágil</span><span class="tag">Ciudad</span></div>
+            <div class="actions">
+              <button class="btn whatsapp" type="button" onclick="openRequestModal('Chevrolet Suburban 2025')">Solicitar</button>
+              <button class="btn ghost" type="button" onclick="openRequestModal('Chevrolet Suburban 2025', {channel:'email'})">Correo</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="vehicle">
+          <div class="imgWrap"><img src="assets/fleet/hiace-2017.png" alt="Toyota Hiace 2017"></div>
+          <div class="meta">
+            <b>Toyota Hiace 2017</b>
+            <span>Van · Grupos</span>
+            <div class="tagRow"><span class="tag">Capacidad</span><span class="tag">Turismo</span></div>
+            <div class="actions">
+              <button class="btn whatsapp" type="button" onclick="openRequestModal('Toyota Hiace 2017')">Solicitar</button>
+              <button class="btn ghost" type="button" onclick="openRequestModal('Toyota Hiace 2017', {channel:'email'})">Correo</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="vehicle">
+          <div class="imgWrap"><img src="assets/fleet/hiace-2019.png" alt="Toyota Hiace 2019"></div>
+          <div class="meta">
+            <b>Toyota Hiace 2019</b>
+            <span>Van · Eventos / personal</span>
+            <div class="tagRow"><span class="tag">Logística</span><span class="tag">Confort</span></div>
+            <div class="actions">
+              <button class="btn whatsapp" type="button" onclick="openRequestModal('Toyota Hiace 2019')">Solicitar</button>
+              <button class="btn ghost" type="button" onclick="openRequestModal('Toyota Hiace 2019', {channel:'email'})">Correo</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="vehicle">
+          <div class="imgWrap"><img src="assets/fleet/hilux-2024.png" alt="Toyota Hilux 2024"></div>
+          <div class="meta">
+            <b>Toyota Hilux 2024</b>
+            <span>Pickup · Operación</span>
+            <div class="tagRow"><span class="tag">Soporte</span><span class="tag">Trabajo</span></div>
+            <div class="actions">
+              <button class="btn whatsapp" type="button" onclick="openRequestModal('Toyota Hilux 2024')">Solicitar</button>
+              <button class="btn ghost" type="button" onclick="openRequestModal('Toyota Hilux 2024', {channel:'email'})">Correo</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="panel" style="padding:18px; margin-top:14px;">
+        <div class="pillRow">
+          <span class="pill">Sanitizados</span>
+          <span class="pill">Excelente presentación</span>
+          <span class="pill">Programación y disponibilidad</span>
+        </div>
+        <p style="margin:10px 0 0; color: var(--muted); font-size: 14px;">
+          Recomendación: usa fotos reales (interior/exterior) para elevar la confianza y la conversión.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ CLIENTES (ACTUALIZADO) -->
+  <section id="clientes">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Clientes</h2>
+        <p>Algunos clientes que han confiado en Dial Transport.</p>
+      </div>
+
+      <div class="clients" aria-label="Listado de clientes">
+        <div class="client">Estafeta Mexicana S.A. de C.V.</div>
+        <div class="client">Cars Solutions America S.A. de C.V.</div>
+        <div class="client">DRS Automotive Solutions S. de R.L. de C.V.</div>
+        <div class="client">Grupo Posadas S.A.B de C.V.</div>
+        <div class="client">Destination Service S.A. de C.V.</div>
+        <div class="client">Meveo Servicios y Calidad S.A. de C.V.</div>
+        <div class="client">Travelerpass S.A.S</div>
+        <div class="client">Colegio Columbia</div>
+        <div class="client">Instituto D’amicis</div>
+        <div class="client">Colegio Carabez</div>
+        <div class="client">Colegio Andes</div>
+        <div class="client">New Spot Entertainment</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Contacto</h2>
+        <p>Para cotizaciones de acuerdo a tus necesidades, contáctanos por teléfono, WhatsApp o correo.</p>
+      </div>
+
+      <div class="contactGrid">
+        <div class="panel" style="padding:18px;">
+          <h3 style="margin:0 0 6px; font-size: 16px;">Datos de contacto</h3>
+          <p style="margin:0; color: var(--muted); font-size: 14px;">Atención directa con LAE. Felipe Díaz Arévalo.</p>
+
+          <div class="kv" role="list">
+            <b role="listitem">Puebla</b>
+            <div>
+              <a class="btn ghost" style="padding:8px 12px;" href="tel:+522223444506">22 23 44 45 06</a>
+              <a class="btn ghost" style="padding:8px 12px; margin-left:8px;" href="tel:+522221360864">22 21 36 08 64</a>
+            </div>
+
+            <b role="listitem">CDMX</b>
+            <div>
+              <a class="btn ghost" style="padding:8px 12px;" href="tel:+525548601628">55 48 60 16 28</a>
+            </div>
+
+            <b role="listitem">Correo</b>
+            <div>
+              <a class="btn primary" style="padding:8px 12px;" href="mailto:dial.transport1@gmail.com">dial.transport@gmail.com</a>
+            </div>
+
+            <b role="listitem">WhatsApp</b>
+            <div>
+              <a class="btn whatsapp" style="padding:8px 12px;"
+                 href="https://wa.me/5215636305897?text=Hola%20Dial%20Transport%2C%20me%20gustar%C3%ADa%20cotizar%20un%20servicio.%20%C2%BFMe%20apoyan%20por%20favor%3F"
+                 target="_blank" rel="noopener">
+                Puebla (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="padding:18px;">
+          <h3 style="margin:0 0 6px; font-size: 16px;">Solicitud rápida</h3>
+          <p style="margin:0; color: var(--muted); font-size: 14px;">Este formulario no guarda información. Solo abre Gmail con el mensaje listo.</p>
+
+          <form id="contactForm" style="margin-top:10px; display:grid; gap: 10px;">
+            <input id="c_name" type="text" placeholder="Nombre" required />
+            <input id="c_phone" type="tel" placeholder="Teléfono" required />
+            <input id="c_subject" type="text" placeholder="Asunto (ej. Cotización empresarial)" required />
+            <textarea id="c_message" placeholder="Mensaje"></textarea>
+            <button class="btn primary" type="submit">Abrir Gmail</button>
+            <div class="small">Tip: deja Gmail iniciado en el mismo perfil de Chrome para que no se pierda la redacción.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="btn floatWA"
+     href="https://wa.me/5215636305897?text=Hola%20Dial%20Transport%2C%20me%20gustar%C3%ADa%20cotizar%20un%20servicio.%20%C2%BFMe%20apoyan%20por%20favor%3F"
+     target="_blank" rel="noopener">
+    WhatsApp
+  </a>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> Dial Transport. Todos los derechos reservados.</div>
+        <div>Transporte empresarial · turístico · escolar · eventos</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL SOLICITAR -->
+  <div id="modalOverlay" class="modalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modalHeader">
+        <div>
+          <h3 id="modalTitle">Solicitar cotización</h3>
+          <p id="modalSubtitle">Completa los datos y envía por WhatsApp o por correo.</p>
+        </div>
+        <button class="closeBtn" type="button" onclick="closeRequestModal()">Cerrar</button>
+      </div>
+
+      <form id="modalForm" class="modalBody">
+        <input id="m_vehicle" type="text" placeholder="Vehículo" readonly />
+        <div class="grid2">
+          <input id="m_name" type="text" placeholder="Nombre" autocomplete="name" required />
+          <input id="m_phone" type="tel" placeholder="Teléfono" autocomplete="tel" required />
+        </div>
+        <div class="grid2">
+          <input id="m_origin" type="text" placeholder="Origen" required />
+          <input id="m_destination" type="text" placeholder="Destino" required />
+        </div>
+        <div class="grid2">
+          <input id="m_datetime" type="text" placeholder="Fecha y hora (ej. 10/01/2026 08:30)" required />
+          <input id="m_people" type="text" placeholder="Número de personas" required />
+        </div>
+        <textarea id="m_details" placeholder="Detalles (paradas, equipaje, tipo de servicio, etc.)"></textarea>
+
+        <div class="small">
+          Nota: Este formulario no guarda datos. Solo genera un mensaje listo para enviar.
+        </div>
+      </form>
+
+      <div class="modalFooter">
+        <button class="btn danger" type="button" onclick="closeRequestModal()">Cancelar</button>
+        <button class="btn ghost" type="button" onclick="sendModalEmail()">Abrir Gmail</button>
+        <button class="btn whatsapp" type="button" onclick="sendModalWhatsApp()">Enviar por WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // CONFIG
+    const CONTACT_EMAIL = "dial.transport1@gmail.com";
+    const WA_PHONE_PUEBLA = "5636305897"; // WhatsApp Puebla
+    const GMAIL_USER_INDEX = 0; // si tu Gmail no está en /u/0, cambia a 1
+
+    function openGmailCompose({to, subject, body, userIndex = 0}) {
+      const base = `https://mail.google.com/mail/u/${userIndex}/?ui=2&view=cm&fs=1&tf=1`;
+      const url =
+        base +
+        `&to=${encodeURIComponent(to)}` +
+        `&su=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+      window.location.href = url;
+    }
+
+    // ===== Modal logic =====
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalForm = document.getElementById("modalForm");
+
+    let modalPreferredChannel = "whatsapp";
+    let lastFocusedElement = null;
+
+    function openRequestModal(vehicleName, opts = {}) {
+      lastFocusedElement = document.activeElement;
+
+      modalPreferredChannel = opts.channel || "whatsapp";
+      document.getElementById("m_vehicle").value = vehicleName;
+
+      const subtitle = document.getElementById("modalSubtitle");
+      subtitle.textContent = (modalPreferredChannel === "email")
+        ? "Completa los datos y abre Gmail con el mensaje listo."
+        : "Completa los datos y envía por WhatsApp o por correo.";
+
+      modalOverlay.classList.add("open");
+      modalOverlay.setAttribute("aria-hidden", "false");
+
+      setTimeout(() => {
+        document.getElementById("m_name").focus();
+      }, 0);
+    }
+
+    function closeRequestModal() {
+      modalOverlay.classList.remove("open");
+      modalOverlay.setAttribute("aria-hidden", "true");
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+    }
+
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) closeRequestModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modalOverlay.classList.contains("open")) {
+        closeRequestModal();
+      }
+    });
+
+    function getModalData() {
+      const vehicle = document.getElementById("m_vehicle").value.trim();
+      const name = document.getElementById("m_name").value.trim();
+      const phone = document.getElementById("m_phone").value.trim();
+      const origin = document.getElementById("m_origin").value.trim();
+      const destination = document.getElementById("m_destination").value.trim();
+      const datetime = document.getElementById("m_datetime").value.trim();
+      const people = document.getElementById("m_people").value.trim();
+      const details = document.getElementById("m_details").value.trim();
+      return { vehicle, name, phone, origin, destination, datetime, people, details };
+    }
+
+    function validateModalRequired() {
+      return modalForm.reportValidity();
+    }
+
+    function sendModalWhatsApp() {
+      if (!validateModalRequired()) return;
+
+      const d = getModalData();
+      const text =
+        `Hola Dial Transport, me gustaría cotizar un servicio.\n\n` +
+        `Vehículo: ${d.vehicle}\n` +
+        `Nombre: ${d.name}\n` +
+        `Teléfono: ${d.phone}\n\n` +
+        `Origen: ${d.origin}\n` +
+        `Destino: ${d.destination}\n` +
+        `Fecha y hora: ${d.datetime}\n` +
+        `Personas: ${d.people}\n` +
+        `Detalles: ${d.details || "N/A"}\n`;
+
+      const url = `https://wa.me/${WA_PHONE_PUEBLA}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+
+    function sendModalEmail() {
+      if (!validateModalRequired()) return;
+
+      const d = getModalData();
+      const subject = `Cotización (${d.vehicle}) - Dial Transport`;
+      const body =
+        `Hola, me gustaría solicitar una cotización.\n\n` +
+        `Vehículo: ${d.vehicle}\n` +
+        `Nombre: ${d.name}\n` +
+        `Teléfono: ${d.phone}\n\n` +
+        `Origen: ${d.origin}\n` +
+        `Destino: ${d.destination}\n` +
+        `Fecha y hora: ${d.datetime}\n` +
+        `Número de personas: ${d.people}\n` +
+        `Detalles adicionales: ${d.details || "N/A"}\n\n` +
+        `Gracias.`;
+
+      openGmailCompose({ to: CONTACT_EMAIL, subject, body, userIndex: GMAIL_USER_INDEX });
+    }
+
+    // ===== Forms (hero + contact) =====
+    const quoteForm = document.getElementById("quoteForm");
+    quoteForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const route = document.getElementById("route").value.trim();
+      const date = document.getElementById("date").value.trim();
+      const people = document.getElementById("people").value.trim();
+      const details = document.getElementById("details").value.trim();
+
+      const subject = "Cotización - Dial Transport";
+      const body =
+        `Hola, me gustaría solicitar una cotización.\n\n` +
+        `Nombre: ${name}\n` +
+        `Teléfono: ${phone}\n` +
+        `Ruta: ${route}\n` +
+        `Fecha y hora: ${date}\n` +
+        `Número de personas: ${people}\n` +
+        `Detalles adicionales: ${details || "N/A"}\n\n` +
+        `Gracias.`;
+
+      openGmailCompose({ to: CONTACT_EMAIL, subject, body, userIndex: GMAIL_USER_INDEX });
+    });
+
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("c_name").value.trim();
+      const phone = document.getElementById("c_phone").value.trim();
+      const subj = document.getElementById("c_subject").value.trim();
+      const message = document.getElementById("c_message").value.trim();
+
+      const subject = `${subj} - Dial Transport`;
+      const body =
+        `Hola, me gustaría contactarlos.\n\n` +
+        `Nombre: ${name}\n` +
+        `Teléfono: ${phone}\n\n` +
+        `Mensaje:\n${message || "N/A"}\n\n` +
+        `Gracias.`;
+
+      openGmailCompose({ to: CONTACT_EMAIL, subject, body, userIndex: GMAIL_USER_INDEX });
+    });
+  </script>
+</body>
+</html>
